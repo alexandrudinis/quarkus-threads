@@ -6,6 +6,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.time.Duration;
 
 @ApplicationScoped
@@ -40,10 +41,12 @@ public class UserService {
         try (HttpClient client = HttpClient.newHttpClient();) {
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(new java.net.URI("http://localhost:8080/external-call"))
-                    .timeout(Duration.ofMillis(1000))
+                    //.timeout(Duration.ofMillis(1000))
                     .build();
-            java.net.http.HttpResponse<String> response = client.send(request, java.net.http.HttpResponse.BodyHandlers.ofString());
+
+            HttpResponse<String> response = client.send(request, java.net.http.HttpResponse.BodyHandlers.ofString());
             return Uni.createFrom().item(response.body());
+
         }
     }
 }

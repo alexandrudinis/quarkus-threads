@@ -12,7 +12,7 @@ import jakarta.ws.rs.core.MediaType;
 @Consumes(MediaType.APPLICATION_JSON)
 public class ExternalCallResource {
     @GET
-    @Blocking // run on worker so the sleeper itself doesn't block the event loop
+    @Blocking
     public String externalCall() {
 
         try {

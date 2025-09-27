@@ -28,7 +28,7 @@ public class UserResource {
     // 2) NON-BLOCKING forced on blocking code (event-loop)
     @GET
     @Path("/fake-non-blocking/{name}")
-    @Blocking
+    @NonBlocking
     @Produces(MediaType.APPLICATION_JSON)
     public UserDTO fakeNonBlocking(@PathParam("name") String name) {
         return userService.getUser(name);
