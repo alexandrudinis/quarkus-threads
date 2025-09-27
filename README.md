@@ -188,17 +188,17 @@ Add logging already present; verify:
 \- No `Thread.sleep` inside event loop
 
 
-## 16\. Key Takeaways
+## 15\. Key Takeaways
 \- Never block on the event loop
 \- Use reactive APIs (`Uni`) or offload (`@Blocking`, `@RunOnVirtualThread`)
 \- Reuse resources (single `HttpClient`)
 \- Watch thread names to validate correctness
 
-## 17\. Files of Interest
+## 16\. Files of Interest
 \- `src/main/java/demo/UserResource.java`
 \- `src/main/java/demo/UserService.java`
 \- `src/main/java/demo/ExternalCallResource.java`
 \- `src/main/docker/Dockerfile.jvm`
 
-## 18\. Summary
+## 17\. Summary
 This project is a concise playground to visualize and measure the impact of blocking calls on Quarkus event loops and to apply correct mitigation patterns.
